@@ -49,9 +49,10 @@ end
 # Print out even numbers: 2, 4, 6, 8, 10 in a range using for loop
 RSpec.describe 'printing even numbers in a range' do
   def print_even_nums(range)
-    for i in range
-      puts i if i % 2 == 0
-    end
+    range.to_a.select{|x| x.even? }
+    # for i in range
+    #   puts i if i % 2 == 0
+    # end
   end
 
   it 'display even numbers in given range' do
@@ -123,5 +124,30 @@ RSpec.describe 'printing numbers in decrease order' do
     expect(print_nums_decrease(1..10)).to include([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
   end
 end
+
+# Print out a length of an array
+RSpec.describe 'length of array' do
+  def print_arr_length(arr)
+    return arr.length
+  end
+
+  it 'display array/s length' do
+    expect(print_arr_length(%w[bee dog cat pig])).to eql(4)
+  end
+end
+
+# Print out a sum of all elements of an array of integers
+RSpec.describe 'sum of array elements' do
+  def array_sum(arr)
+    sum = 0
+    arr.each { |i| sum += i.to_i }
+    return sum
+  end
+
+  it 'display sum of array' do
+    expect(array_sum([1, 2, 3])).to eql(6)
+  end
+end
+
 
 RSpec::Core::Runner.run([$__FILE__])
