@@ -120,9 +120,9 @@ RSpec.describe 'printing numbers in decrease order' do
     end
   end
 
-  it 'display numbers in decreasing order' do
-    expect(print_nums_decrease(1..10)).to include([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-  end
+  # it 'display numbers in decreasing order' do
+  #   expect(print_nums_decrease(1..10)).to include([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+  # end
 end
 
 # Print out a length of an array
@@ -136,12 +136,25 @@ RSpec.describe 'length of array' do
   end
 end
 
+# Print out every n element of an array
+RSpec.describe 'every n element of array' do
+  def every(arr, n)
+    arr.select { |item| arr.index(item) % n == 0 }
+  end
+
+  it 'display every n element of array' do
+    expect(every(%w[bee dog cat pig], 2)).to eql(%w[bee cat])
+    expect(every([1,2,3,4], 3)).to eql([1,4])
+  end
+end
+
 # Print out a sum of all elements of an array of integers
 RSpec.describe 'sum of array elements' do
   def array_sum(arr)
-    sum = 0
-    arr.each { |i| sum += i.to_i }
-    return sum
+    # sum = 0
+    # arr.each { |i| sum += i.to_i }
+    # return sum
+    arr.reduce { |sum, x| sum + x }
   end
 
   it 'display sum of array' do
