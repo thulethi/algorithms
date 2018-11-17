@@ -50,7 +50,7 @@ RSpec.describe 'longest string of an array of strings' do
   def longest_string(arr)
     longest = arr[0]
     for i in 0...arr.length
-      longest = arr[i] if arr[i].length > arr[0].length
+      longest = arr[i] if arr[i].length > longest.length
     end
     return {longest: longest, length: longest.length}
   end
