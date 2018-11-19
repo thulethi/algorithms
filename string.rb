@@ -74,9 +74,26 @@ end
 # In a string containing letters remove duplicate sequences.
 # For example for “aaabbbbccbaaadccb” it should return “aaabbbbccbd”
 RSpec.describe 'duplicates removed from a string' do
+  def remove_duplicates(str)
+    arr = str.split('')
+    grouped = []
+    occur = 1
+    for i in 1...arr.length
+      if arr[i] != arr[i - 1]
+        grouped << arr[i - 1].to_s * occur
+        occur = 1
+      else
+        occur += 1
+      end
+    end
+    grouped << arr[i].to_s * occur
+    result = grouped.group_by { |group| group }
+    return result.keys.join('')
+  end
 
   it 'removes duplicated groups from a string' do
     expect(remove_duplicates('aaabbbbccbaaadccb')).to eql('aaabbbbccbd')
+  end
 end
 
 
