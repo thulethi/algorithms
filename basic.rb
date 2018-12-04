@@ -33,6 +33,17 @@ RSpec.describe 'a string converted to an array of integer' do
   end
 end
 
+# Convert an array of words into a string. Capitalize every word
+RSpec.describe 'converting array to string' do
+  def convert_arr_to_str(arr)
+    result = arr.map(&:capitalize).join(" ")
+  end
+
+  it 'displays a string with capitalized words' do
+    expect(convert_arr_to_str( %w(ruby on rails))).to eql('Ruby On Rails')
+  end
+end
+
 # Print out numbers from 1 to 10 using for loop
 RSpec.describe 'printing out numbers in a range' do
   def print_range_numbers(range)
