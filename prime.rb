@@ -20,7 +20,7 @@ def find_prime(range)
   end
 end
 
-#  Check if an input number is prime number
+#  Check if a given initeger number is prime
 RSpec.describe 'check if a number is prime' do
   it 'check if a number is prime' do
     expect(check_if_prime(97)).to eql(true)
@@ -37,6 +37,24 @@ def check_if_prime(number)
   end
   return is_prime
 end
+
+# Determine the greatest common divisor of two positive integer numbers
+# def gcd
+
+# Determine whether two positive integer numbers are coprime.
+# Two numbers are coprime if their greatest common divisor equals 1
+# def is_coprime_to
+
+# Determine the prime factors of a given positive integer.
+# Construct a flat list containing the prime factors in ascending order.
+# def prime_factors
+
+# Determine the prime factors of a given positive integer (2).
+# Construct a list containing the prime factors and their multiplicity.
+# Alternately, use a Map for the result
+# def prime_factor_multiplicity
+
+
 
 
 RSpec::Core::Runner.run([$__FILE__])

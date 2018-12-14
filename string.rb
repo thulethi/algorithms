@@ -1,5 +1,17 @@
 require 'rspec'
 
+# Given two strings, determine if they share a common substring. A substring may be as small as one character.
+# For example, the words "a", "and", "art" share the common substring . The words "be" and "cat" do not share a substring.
+RSpec.describe 'substring of two strings' do
+  def two_string(s1, s2)
+    if s1.split('').any? { |x| s2.include?(x) }
+      return 'YES'
+    else
+      return 'NO'
+    end
+  end
+end
+
 # Locate all the indices of one character in a string
 # For example for "ala ma kota", indices of character "a" is [0, 2, 5, 10]
 # Solution:
@@ -95,6 +107,9 @@ RSpec.describe 'duplicates removed from a string' do
     expect(remove_duplicates('aaabbbbccbaaadccb')).to eql('aaabbbbccbd')
   end
 end
+
+# Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string. Given a string, find the number of pairs of substrings of the string that are anagrams of each other.
+# For example: s = 'mom', the list of all anagrammatic pairs is [m, m], [mo, om] at positions
 
 
 RSpec::Core::Runner.run([$__FILE__])
